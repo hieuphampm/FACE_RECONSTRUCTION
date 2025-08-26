@@ -13,7 +13,14 @@
 \usepackage{graphicx}  
 \usepackage{float} 
 
-\geometry{top=2cm,bottom=2cm,left=2.5cm,right=2.5cm}
+\geometry{
+	a4paper,
+	total={160mm,240mm},
+	left=30mm,
+	top=22mm,
+	right=20mm,
+	bottom=20mm,
+}
 
 \titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
 
@@ -301,6 +308,9 @@
 		
 		\item \textbf{Tăng cường chi tiết khuôn mặt} (\textit{Face Enhancement}): Đầu ra từ mô hình LaMa có thể vẫn thiếu chi tiết sắc nét ở vùng khuôn mặt. Do đó, chúng tôi sử dụng GFPGAN \cite{gfpgan}, một mạng GAN với kiến trúc UNet-like được huấn luyện trên perceptual loss và facial component loss, nhằm khôi phục chi tiết khuôn mặt như mắt, mũi và miệng một cách tự nhiên và rõ ràng hơn.
 	\end{enumerate}
+	
+	%===========================================
+	\section{Kết quả nghiên cứu và thử nghiệm}
 	
 	%===========================================
 	\section{Tài liệu tham khảo}
