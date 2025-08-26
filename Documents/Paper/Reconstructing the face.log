@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.5.10)  26 AUG 2025 09:40
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.5.10)  26 AUG 2025 09:51
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -601,13 +601,9 @@ Overfull \hbox (0.51395pt too wide) in paragraph at lines 193--194
  []
 
 [5] [6]
-
-LaTeX Warning: Citation `wang2021gfpgan' on page 7 undefined on input line 272.
-
-
 LaTeX Font Info:    Trying to load font information for T5+cmtt on input line 2
 83.
-(C:\Program Files\MiKTeX\tex/latex/vntex\t5cmtt.fd
+ (C:\Program Files\MiKTeX\tex/latex/vntex\t5cmtt.fd
 File: t5cmtt.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 ) [7] [8] [9]
 (Reconstructing the face.aux)
@@ -615,16 +611,12 @@ File: t5cmtt.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-04>
  ***********
-
-
-LaTeX Warning: There were undefined references.
-
  ) 
 Here is how much of TeX's memory you used:
- 5653 strings out of 474486
- 84973 string characters out of 5753573
+ 5657 strings out of 474486
+ 85031 string characters out of 5753573
  1935542 words of memory out of 5000000
- 27850 multiletter control sequences out of 15000+600000
+ 27854 multiletter control sequences out of 15000+600000
  577928 words of font info for 84 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  57i,9n,65p,898b,355s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -646,9 +638,9 @@ vnbx12.pk> <C:\Users\Hieu\AppData\Local\MiKTeX\fonts/pk/ljfour/vntex/vnr/dpi657
 public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfont
 s/cm/cmsy10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.p
 fb>
-Output written on "Reconstructing the face.pdf" (9 pages, 304794 bytes).
+Output written on "Reconstructing the face.pdf" (9 pages, 304473 bytes).
 PDF statistics:
- 666 PDF objects out of 1000 (max. 8388607)
+ 665 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

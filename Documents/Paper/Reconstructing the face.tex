@@ -269,7 +269,7 @@
 	\begin{itemize}
 		\item $\theta^{(t)}$ là trọng số hiện tại của mô hình tại bước $t$,
 		\item $\theta_{\text{EMA}}^{(t)}$ là giá trị EMA tương ứng,
-		\item $\alpha \in (0, 1)$ là hệ số làm mượt; trong nghiên cứu này, chúng tôi sử dụng $\alpha = 0.999$ giống như trong \cite{wang2021gfpgan}.
+		\item $\alpha \in (0, 1)$ là hệ số làm mượt; trong nghiên cứu này, chúng tôi sử dụng $\alpha = 0.999$, tương tự như cách tiếp cận được trình bày trong GFP-GAN của Wang et al.~\cite{gfpgan}.
 	\end{itemize}
 	
 	Việc cập nhật EMA diễn ra sau mỗi batch huấn luyện. Khi thực hiện suy diễn (inference), trọng số EMA được dùng thay vì trọng số gốc để cho đầu ra ổn định và chất lượng hơn.
