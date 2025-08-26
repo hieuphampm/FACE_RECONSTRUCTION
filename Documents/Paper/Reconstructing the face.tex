@@ -8,6 +8,10 @@
 \usepackage{titlesec}
 \usepackage{setspace}
 \usepackage{tabularx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}  
+\usepackage{float} 
 
 \geometry{top=2cm,bottom=2cm,left=2.5cm,right=2.5cm}
 
@@ -207,6 +211,115 @@
 	\end{itemize}
 	
 	%===========================================
-	\section{Phương pháp}
+	\section{Phương pháp nghiên cứu}
+	
+	Phương pháp của chúng tôi tập trung vào nhiệm vụ khôi phục gương mặt bị che khuất bằng kỹ thuật inpainting nâng cao, kết hợp giữa mô hình phân đoạn mặt nạ (MaskNet), tái tạo vùng bị che bằng LaMa, và phục hồi chi tiết gương mặt bằng GFPGAN. Hệ thống được thiết kế theo pipeline gồm 3 giai đoạn:
+	\begin{enumerate}
+		\item Chuẩn bị và tiền xử lý dữ liệu
+		\item Huấn luyện mô hình MaskNet
+		\item Suy diễn kết hợp nhiều mô-đun để phục hồi khuôn mặt
+	\end{enumerate}
+	
+	%====================
+	\subsection{Tiền xử lý dữ liệu}
+	Để huấn luyện và kiểm thử, chúng tôi sử dụng tập dữ liệu Flickr-Faces-HQ, bao gồm các ảnh khuôn mặt chất lượng cao. Sau đó chuẩn hoá và làm phong phú bằng các kỹ thuật sau:
+	\begin{itemize}
+		\item \textbf{Tăng cường dữ liệu} bằng cách tạo mặt nạ ngẫu nhiên phủ lên các vùng ảnh theo nhiều kiểu (hình ellipse, hình chữ nhật, stroke, polygon).
+		
+		\item \textbf{Nhiễu hóa vùng che khuất} bằng cách áp dụng màu đơn sắc hoặc nhiễu Gaussian lên khu vực bị che để mô phỏng các tình huống che mặt trong thực tế như khẩu trang, sticker, vết mực
+		
+		\item Ảnh sau khi xử lý sẽ được resize và căn giữa vào khung 256x256 pixel, đảm bảo nhất quán về kích thước.
+	\end{itemize}
+	
+	%====================
+	\subsection{Huấn luyện mô hình MaskNet}
+	
+	Chúng tôi phát triển mô hình phân đoạn mặt nạ \textbf{MaskNet} dựa trên kiến trúc U-Net thu gọn, bao gồm ba tầng mã hóa (encoder), một tầng bottleneck và ba tầng giải mã (decoder), tổng cộng bảy khối tích chập. Mô hình được huấn luyện để học cách phát hiện vùng bị che khuất trên khuôn mặt và sinh ra mặt nạ phân đoạn chính xác, nhằm phục vụ cho bước tái tạo sau đó.
+	
+	\subsubsection*{Hàm mất mát}
+	
+	Để tối ưu hiệu quả phân đoạn, chúng tôi kết hợp hai hàm mất mát:
+	
+	\begin{itemize}
+		\item \textbf{Binary Cross Entropy (BCE)}: đo sự khác biệt giữa từng điểm ảnh trong mặt nạ dự đoán và mặt nạ thật.
+		\item \textbf{Dice Loss}: tăng cường khả năng học các vùng nhỏ và viền chi tiết, được định nghĩa như sau:
+	\end{itemize}
+	
+	\begin{equation}
+		\mathcal{L}_{\text{Dice}} = 1 - \frac{2 \cdot \sum (P \cdot T)}{\sum P + \sum T + \epsilon}
+	\end{equation}
+	
+	trong đó $P$ là mặt nạ dự đoán (sau hàm sigmoid), $T$ là mặt nạ thật, và $\epsilon$ là một hằng số rất nhỏ nhằm tránh chia cho 0.
+	
+	Tổng hàm mất mát được tính là:
+	
+	\begin{equation}
+		\mathcal{L}_{\text{total}} = \mathcal{L}_{\text{BCE}} + \mathcal{L}_{\text{Dice}}
+	\end{equation}
+	
+	\subsubsection*{Trung bình động hàm mũ (EMA)}
+	
+	Để tăng độ ổn định và khả năng tổng quát hóa của mô hình trong giai đoạn suy diễn, chúng tôi sử dụng kỹ thuật \textbf{trung bình động hàm mũ (EMA – Exponential Moving Average)} để cập nhật bản sao trọng số “mượt hơn” của mô hình. Cập nhật EMA được tính theo công thức:
+	
+	\begin{equation}
+		\theta_{\text{EMA}}^{(t)} = \alpha \cdot \theta_{\text{EMA}}^{(t-1)} + (1 - \alpha) \cdot \theta^{(t)}
+	\end{equation}
+	
+	trong đó:
+	\begin{itemize}
+		\item $\theta^{(t)}$ là trọng số hiện tại của mô hình tại bước $t$,
+		\item $\theta_{\text{EMA}}^{(t)}$ là giá trị EMA tương ứng,
+		\item $\alpha \in (0, 1)$ là hệ số làm mượt; trong nghiên cứu này, chúng tôi sử dụng $\alpha = 0.999$ giống như trong \cite{wang2021gfpgan}.
+	\end{itemize}
+	
+	Việc cập nhật EMA diễn ra sau mỗi batch huấn luyện. Khi thực hiện suy diễn (inference), trọng số EMA được dùng thay vì trọng số gốc để cho đầu ra ổn định và chất lượng hơn.
+	
+	%====================
+	\subsubsection*{Chi tiết huấn luyện}
+	
+	\begin{itemize}
+		\item \textbf{Thuật toán tối ưu}: AdamW với learning rate $10^{-3}$ và weight decay $10^{-4}$.
+		\item \textbf{Thiết bị}: GPU (nếu khả dụng).
+		\item \textbf{Mixed precision}: Dùng \texttt{torch.cuda.amp.GradScaler} để giảm bộ nhớ và tăng tốc độ tính toán.
+		\item \textbf{Checkpoint}: Trọng số có chỉ số IoU trung bình cao nhất trên tập validation sẽ được lưu tại thư mục \texttt{/checkpoints}.
+	\end{itemize}
+	
+	\subsection{Suy diễn kết hợp nhiều mô-đun để phục hồi khuôn mặt}
+	
+	Sau khi hoàn tất huấn luyện mô hình phân đoạn vùng che khuôn mặt, chúng tôi thiết kế một pipeline xử lý ảnh gồm nhiều bước để tái tạo khuôn mặt bị che khuất. Quá trình này gồm sáu bước chính như sau:
+	
+	\begin{enumerate}
+		\item \textbf{Phân đoạn vùng che} (\textit{Occlusion Segmentation}): Ảnh đầu vào được đưa qua mô hình MaskNet \cite{masknet} để xác định chính xác vùng che khuất khuôn mặt (chẳng hạn như khẩu trang, tay hoặc vật thể).
+		
+		\item \textbf{Phát hiện vật thể che đồng sắc} (\textit{Monochrome Occlusion Detection}): Nhằm phát hiện các vùng che có màu đồng nhất (như khẩu trang trắng hoặc xanh), chúng tôi áp dụng thuật toán phân cụm \textit{k-means} lên không gian màu của ảnh gốc để phân loại các vùng ảnh có khả năng là vật thể che đồng nhất.
+		
+		\item \textbf{Hợp nhất mặt nạ} (\textit{Mask Fusion}): Hai mặt nạ từ bước (1) và (2) được hợp nhất thành một mặt nạ duy nhất nhằm đảm bảo bao phủ đầy đủ các vùng che khuất và loại bỏ nhiễu không cần thiết.
+		
+		\item \textbf{Sửa tiền xử lý mặt nạ} (\textit{Mask Refinement}): Mặt nạ được tinh chỉnh để đảm bảo kích thước và tỷ lệ vùng bị che phù hợp với yêu cầu đầu vào của mô hình tái tạo LaMa \cite{lama}.
+		
+		\item \textbf{Tái tạo nội dung ảnh} (\textit{Image Inpainting}): Ảnh đã được che mặt nạ được phục hồi thông qua mô hình Simple LaMa \cite{lama}, một mô hình inpainting dựa trên kiến trúc \textit{Fast Fourier Convolution} giúp duy trì kết cấu và độ nhất quán toàn cục trong vùng phục hồi.
+		
+		\item \textbf{Tăng cường chi tiết khuôn mặt} (\textit{Face Enhancement}): Đầu ra từ mô hình LaMa có thể vẫn thiếu chi tiết sắc nét ở vùng khuôn mặt. Do đó, chúng tôi sử dụng GFPGAN \cite{gfpgan}, một mạng GAN với kiến trúc UNet-like được huấn luyện trên perceptual loss và facial component loss, nhằm khôi phục chi tiết khuôn mặt như mắt, mũi và miệng một cách tự nhiên và rõ ràng hơn.
+	\end{enumerate}
+	
 	%===========================================
+	\section{Tài liệu tham khảo}
+	\begin{thebibliography}{9}
+		
+		\bibitem{gfpgan}
+		Wang, Xintao et al.
+		\textit{GFP-GAN: Towards Real-World Blind Face Restoration with Generative Facial Prior}.
+		Advances in Neural Information Processing Systems (NeurIPS), 2021.
+		
+		\bibitem{lama}
+		Suvorov, Roman et al.
+		\textit{Resolution-robust Large Mask Inpainting with Fourier Convolutions}.
+		In Proceedings of the Winter Conference on Applications of Computer Vision (WACV), 2022.
+		
+		\bibitem{masknet}
+		Zhou, Hang et al.
+		\textit{MaskNet: Towards General Instance Segmentation with Mask Conditioning}.
+		In ECCV, 2020.
+		
+	\end{thebibliography}
 \end{document}
