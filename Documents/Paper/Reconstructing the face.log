@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.5.10)  26 AUG 2025 11:42
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.5.10)  26 AUG 2025 19:01
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -507,22 +507,22 @@ File: l3backend-pdftex.def 2024-01-04 L3 backend support: PDF output (pdfTeX)
 (Reconstructing the face.aux)
 \openout1 = `"Reconstructing the face.aux"'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 39.
-LaTeX Font Info:    ... okay on input line 39.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 39.
-LaTeX Font Info:    ... okay on input line 39.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 39.
-LaTeX Font Info:    ... okay on input line 39.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 39.
-LaTeX Font Info:    ... okay on input line 39.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 39.
-LaTeX Font Info:    ... okay on input line 39.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 39.
-LaTeX Font Info:    ... okay on input line 39.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 39.
-LaTeX Font Info:    ... okay on input line 39.
-LaTeX Font Info:    Checking defaults for T5/cmr/m/n on input line 39.
-LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for T5/cmr/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -579,19 +579,19 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 (C:\Program Files\MiKTeX\tex/latex/00miktex\epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
-LaTeX Font Info:    Trying to load font information for U+msa on input line 41.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 45.
 
 
 (C:\Program Files\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 41.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 45.
 
 
 (C:\Program Files\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-Underfull \hbox (badness 10000) in paragraph at lines 78--80
+Underfull \hbox (badness 10000) in paragraph at lines 82--84
 \T5/cmr/m/it/12 Keywords: \T5/cmr/m/n/12 face re-con-struc-tion, im-age
  []
 
@@ -603,28 +603,55 @@ Overfull \vbox (24.77649pt too high) has occurred while \output is active []
 
 {C:/Users/Hieu/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}] [2]
 [3] [4]
-Overfull \hbox (0.51395pt too wide) in paragraph at lines 200--201
+Overfull \hbox (0.51395pt too wide) in paragraph at lines 204--205
 []\T5/cmr/bx/n/12 Generative Im-age In-paint-ing with Con-tex-tual At-ten-tion 
 (Yu et al., CVPR
  []
 
 [5] [6]
 LaTeX Font Info:    Trying to load font information for T5+cmtt on input line 2
-90.
+94.
  (C:\Program Files\MiKTeX\tex/latex/vntex\t5cmtt.fd
 File: t5cmtt.fd 1999/05/25 v2.5h Standard LaTeX font definitions
-) [7] [8] [9]
-(Reconstructing the face.aux)
+) [7] [8]
+<Images/origin.png, id=45, 1027.84pt x 1027.84pt>
+File: Images/origin.png Graphic file (type png)
+<use Images/origin.png>
+Package pdftex.def Info: Images/origin.png  used on input line 336.
+(pdftex.def)             Requested size: 86.49748pt x 86.4948pt.
+<Images/face_mask.png, id=46, 225.09094pt x 224.33812pt>
+File: Images/face_mask.png Graphic file (type png)
+<use Images/face_mask.png>
+Package pdftex.def Info: Images/face_mask.png  used on input line 337.
+(pdftex.def)             Requested size: 86.49748pt x 86.20784pt.
+<Images/mask.png, id=48, 350.05782pt x 349.305pt>
+File: Images/mask.png Graphic file (type png)
+<use Images/mask.png>
+Package pdftex.def Info: Images/mask.png  used on input line 338.
+(pdftex.def)             Requested size: 86.49748pt x 86.308pt.
+<Images/inpaint.png, id=49, 348.55219pt x 349.305pt>
+File: Images/inpaint.png Graphic file (type png)
+<use Images/inpaint.png>
+Package pdftex.def Info: Images/inpaint.png  used on input line 339.
+(pdftex.def)             Requested size: 86.49748pt x 86.6811pt.
+<Images/restored.png, id=50, 349.305pt x 349.305pt>
+File: Images/restored.png Graphic file (type png)
+<use Images/restored.png>
+Package pdftex.def Info: Images/restored.png  used on input line 340.
+(pdftex.def)             Requested size: 86.49748pt x 86.49455pt.
+ [9 <./Images/origin.png (PNG copy)> <./Images/face_mask.png> <./Images/mask.pn
+g> <./Images/inpaint.png> <./Images/restored.png>] [10] (Reconstructing the fac
+e.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-04>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 5657 strings out of 474486
- 85031 string characters out of 5753573
+ 5697 strings out of 474486
+ 85987 string characters out of 5753573
  1935542 words of memory out of 5000000
- 27854 multiletter control sequences out of 15000+600000
+ 27894 multiletter control sequences out of 15000+600000
  577928 words of font info for 84 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  57i,9n,65p,898b,355s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -646,9 +673,9 @@ vnbx12.pk> <C:\Users\Hieu\AppData\Local\MiKTeX\fonts/pk/ljfour/vntex/vnr/dpi657
 public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfont
 s/cm/cmsy10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.p
 fb>
-Output written on "Reconstructing the face.pdf" (9 pages, 304863 bytes).
+Output written on "Reconstructing the face.pdf" (10 pages, 2768990 bytes).
 PDF statistics:
- 666 PDF objects out of 1000 (max. 8388607)
+ 684 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 26 words of extra memory for PDF output out of 10000 (max. 10000000)
 

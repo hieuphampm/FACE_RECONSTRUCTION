@@ -13,6 +13,10 @@
 \usepackage{graphicx}  
 \usepackage{float} 
 
+\addto\captionsvietnamese{%
+	\renewcommand{\refname}{Tài liệu tham khảo}
+}
+
 \geometry{
 	a4paper,
 	total={160mm,240mm},
@@ -312,8 +316,47 @@
 	%===========================================
 	\section{Kết quả nghiên cứu và thử nghiệm}
 	
-	%===========================================
-	\section{Tài liệu tham khảo}
+	\subsection{Thiết lập thí nghiệm}
+	Trong nghiên cứu này, chúng tôi tiến hành thí nghiệm với pipeline đã đề xuất bao gồm ba thành phần chính: 
+	\begin{enumerate}
+		\item Phân đoạn vùng che khuôn mặt bằng MaskNet \cite{masknet}.
+		\item Tái tạo ảnh bằng LaMa \cite{lama}.
+		\item Phục hồi chi tiết khuôn mặt bằng GFP-GAN \cite{gfpgan}
+	\end{enumerate} 
+	Các thí nghiệm được thực hiện trên tập dữ liệu ảnh khuôn mặt có che chắn nhân tạo (mask ngẫu nhiên, đồng sắc), với đầu ra cuối cùng là ảnh khuôn mặt đã được tái tạo toàn vẹn.  
+	
+	\subsection{Kết quả định tính}
+	Hình \ref{fig:result} minh họa một trường hợp thử nghiệm cụ thể.  
+	Ảnh gốc (\textit{origin}) bị che khuất bởi mặt nạ (\textit{mask}), trong đó một phần khuôn mặt quan trọng (mắt) bị ẩn đi.  
+	Sau khi áp dụng mô hình LaMa, chúng tôi thu được ảnh \textit{inpainted}, tuy nhiên chi tiết khuôn mặt vẫn còn mờ và chưa tự nhiên.  
+	Bước cuối cùng, GFP-GAN được sử dụng để tăng cường và khôi phục chi tiết, cho kết quả \textit{restored} với hình dạng khuôn mặt hoàn chỉnh, đường nét mượt mà và các đặc trưng (mắt, miệng) rõ ràng hơn.  
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.19\textwidth]{Images/origin.png}
+		\includegraphics[width=0.19\textwidth]{Images/face_mask.png}
+		\includegraphics[width=0.19\textwidth]{Images/mask.png}
+		\includegraphics[width=0.19\textwidth]{Images/inpaint.png}
+		\includegraphics[width=0.19\textwidth]{Images/restored.png}
+		\caption{Quy trình phục hồi khuôn mặt (từ trái sang phải):
+			ảnh gốc, mặt nạ che vùng mắt, mặt nạ nhị phân, kết quả inpainting từ LaMa
+			và ảnh phục hồi chi tiết bằng GFP-GAN.}
+		\label{fig:result}
+	\end{figure}
+	
+	
+	\subsection{Đánh giá và phân tích}
+	Kết quả định tính cho thấy pipeline đề xuất đã đạt hiệu quả cao:  
+	\begin{itemize}
+		\item \textbf{MaskNet} cho khả năng xác định chính xác vùng bị che, giảm thiểu lỗi phân đoạn thừa hoặc thiếu.  
+		\item \textbf{LaMa} cho phép tái tạo vùng mất mát một cách hợp lý về cấu trúc toàn cục nhờ việc khai thác \textit{Fast Fourier Convolution}, vốn có khả năng mở rộng trường tiếp nhận (receptive field) ngay từ những tầng đầu tiên \cite{lama}.
+		\item \textbf{GFP-GAN} bổ sung chi tiết khuôn mặt sắc nét và giữ được tính đồng nhất về màu sắc cũng như danh tính khuôn mặt, nhờ việc sử dụng \textit{Generative Facial Prior} kết hợp với các hàm mất mát đặc thù (perceptual, identity, component loss) \cite{gfpgan}.  
+	\end{itemize}
+	
+	Tổng thể, kết quả thử nghiệm khẳng định pipeline kết hợp này không chỉ tái tạo được cấu trúc bị che khuất, mà còn phục hồi được chi tiết khuôn mặt với độ trung thực cao. Phương pháp này có tiềm năng áp dụng trong các bài toán phục hồi ảnh chân dung, ảnh lịch sử hoặc ảnh bị hỏng do che khuất.
+	
+	
+	%==============Tài liệu tham khảo======================
 	\begin{thebibliography}{9}
 		
 		\bibitem{gfpgan}
