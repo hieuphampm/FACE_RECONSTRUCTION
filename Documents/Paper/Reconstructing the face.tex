@@ -49,46 +49,45 @@
 	
 	\vspace{0.3em}
 	
-	\noindent
-	\begin{tabularx}{\textwidth}{X X}
-		\centering\textbf{\MakeUppercase{THÔNG TIN}} & \centering\textbf{\MakeUppercase{TÓM TẮT}} \tabularnewline
-	\end{tabularx}
-	
-	\vspace{0.3em}
-	\noindent\rule{\textwidth}{0.6pt}
-	
-	\begin{multicols}{2}
-		\noindent
-		\textit{Từ khóa:} tái tạo khuôn mặt, phục hồi ảnh, hình ảnh bị che khuất, học sâu, mạng sinh ảnh
-		
-		\columnbreak
-		
-		Trong các hệ thống thị giác máy tính, việc tái tạo khuôn mặt người từ hình ảnh bị che khuất là một thách thức quan trọng nhằm nâng cao khả năng nhận dạng và phân tích. Nghiên cứu này đề xuất một phương pháp dựa trên mô hình học sâu để khôi phục khuôn mặt từ các ảnh bị che một phần, tận dụng mạng sinh ảnh kết hợp với cơ chế tự mã hóa biến phân và GAN nhằm đảm bảo độ chính xác và tính tự nhiên của khuôn mặt tái tạo. Thử nghiệm trên tập dữ liệu chuẩn cho thấy phương pháp này đạt chất lượng phục hồi tốt, cải thiện đáng kể so với các kỹ thuật truyền thống, mở ra ứng dụng tiềm năng trong an ninh, giám sát và chỉnh sửa hình ảnh.
-	\end{multicols}
-	
-	\vspace{-0.4em}
-	\noindent\rule{\textwidth}{0.6pt}
-	
-	\noindent
-	\begin{tabularx}{\textwidth}{X X}
-		\centering\textbf{\MakeUppercase{INFORMATION}} & \centering\textbf{\MakeUppercase{ABSTRACT}} \tabularnewline
-	\end{tabularx}
-	
-	\vspace{0.3em}
-	
-	\noindent\rule{\textwidth}{0.6pt}
-	
-	\begin{multicols}{2}
-		\noindent
-		\textit{Keywords:} face reconstruction, image restoration, occluded images, deep learning, generative networks
-		
-		\columnbreak
-		
-		In computer vision systems, reconstructing human faces from occluded images is a critical challenge to improve recognition and analysis capabilities. This study proposes a deep learning-based approach to recover faces from partially occluded images, leveraging generative networks combined with variational autoencoders and GANs to ensure accuracy and naturalness of reconstructed faces. Experiments on standard datasets demonstrate that the proposed method achieves high restoration quality, significantly outperforming traditional techniques, opening up potential applications in security, surveillance, and image editing.
-	\end{multicols}
-	
-	\vspace{-0.4em}
-	\noindent\rule{\textwidth}{0.6pt}
+\noindent
+\begin{tabularx}{\textwidth}{X X}
+	\centering\textbf{\MakeUppercase{THÔNG TIN}} & \centering\textbf{\MakeUppercase{TÓM TẮT}} \tabularnewline
+\end{tabularx}
+
+\vspace{0.3em}
+\noindent\rule{\textwidth}{0.6pt}
+
+\noindent
+\begin{minipage}[t]{0.48\textwidth}
+	\textit{Từ khóa:} tái tạo khuôn mặt, phục hồi ảnh, hình ảnh bị che khuất, học sâu, mạng sinh ảnh
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.48\textwidth}
+	Trong các hệ thống thị giác máy tính, việc tái tạo khuôn mặt người từ hình ảnh bị che khuất là một thách thức quan trọng nhằm nâng cao khả năng nhận dạng và phân tích. Nghiên cứu này đề xuất một phương pháp dựa trên mô hình học sâu để khôi phục khuôn mặt từ các ảnh bị che một phần, tận dụng mạng sinh ảnh kết hợp với cơ chế tự mã hóa biến phân và GAN nhằm đảm bảo độ chính xác và tính tự nhiên của khuôn mặt tái tạo. Thử nghiệm trên tập dữ liệu chuẩn cho thấy phương pháp này đạt chất lượng phục hồi tốt, cải thiện đáng kể so với các kỹ thuật truyền thống, mở ra ứng dụng tiềm năng trong an ninh, giám sát và chỉnh sửa hình ảnh.
+\end{minipage}
+
+\vspace{0.5em}
+\noindent\rule{\textwidth}{0.6pt}
+
+\begin{tabularx}{\textwidth}{X X}
+	\centering\textbf{\MakeUppercase{INFORMATION}} & \centering\textbf{\MakeUppercase{ABSTRACT}} \tabularnewline
+\end{tabularx}
+
+\vspace{0.3em}
+\noindent\rule{\textwidth}{0.6pt}
+
+\noindent
+\begin{minipage}[t]{0.48\textwidth}
+	\textit{Keywords:} face reconstruction, image restoration, occluded images, deep learning, generative networks
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.48\textwidth}
+	In computer vision systems, reconstructing human faces from occluded images is a critical challenge to improve recognition and analysis capabilities. This study proposes a deep learning-based approach to recover faces from partially occluded images, leveraging generative networks combined with variational autoencoders and GANs to ensure accuracy and naturalness of reconstructed faces. Experiments on standard datasets demonstrate that the proposed method achieves high restoration quality, significantly outperforming traditional techniques, opening up potential applications in security, surveillance, and image editing.
+\end{minipage}
+
+\vspace{0.2em}
+\noindent\rule{\textwidth}{0.6pt}
+
 	
 	%%%%%%%%%%%%%%%%%CONTENTS%%%%%%%%%%%%%%%%%%%
 	%===========================================
@@ -159,67 +158,53 @@
 	Việc phát biểu rõ ràng các thành phần đầu vào, đầu ra và các công đoạn xử lý cho phép đánh giá định lượng và định tính từng giai đoạn, từ đó tối ưu hoặc thay thế các mô-đun để nâng cao chất lượng tái tạo khuôn mặt trong nhiều điều kiện che khuất khác nhau.
 	%===========================================
 	\section{Tổng quan và Cơ sở lý thuyết}
-	%===========================================
+	
 	\subsection{Khái niệm và định nghĩa liên quan}
-	Trong lĩnh vực xử lý ảnh, \textit{tái tạo khuôn mặt từ hình ảnh bị che khuất} (\textit{Face Inpainting}) là một bài toán nhằm khôi phục lại các vùng khuôn mặt bị mất mát hoặc che khuất trong ảnh, đảm bảo tính tự nhiên và nhất quán về mặt hình thái, màu sắc và kết cấu. Đây là một trường hợp đặc biệt của bài toán \textit{Image Inpainting} trong thị giác máy tính.
+	Trong lĩnh vực thị giác máy tính, \textit{tái tạo khuôn mặt từ hình ảnh bị che khuất} (\textit{Face Inpainting}) là bài toán nhằm khôi phục lại các vùng khuôn mặt bị mất mát hoặc che khuất trong ảnh, đảm bảo tính tự nhiên và nhất quán về hình thái, màu sắc và kết cấu. Đây là một dạng đặc biệt của bài toán \textit{Image Inpainting}.  
 	
-	Với sự phát triển của \textit{học sâu} (\textit{Deep Learning}), đặc biệt là các kiến trúc như \textit{Convolutional Neural Networks (CNN)}, \textit{Generative Adversarial Networks (GAN)} và \textit{Transformer-based models}, khả năng tái tạo hình ảnh đã đạt được độ chính xác và tính thẩm mỹ cao hơn so với các phương pháp truyền thống dựa trên nội suy hoặc ghép mẫu.
+	Với sự phát triển của \textit{học sâu} (\textit{Deep Learning}), đặc biệt là các kiến trúc như \textit{Convolutional Neural Networks (CNN)}, \textit{Generative Adversarial Networks (GAN)} và \textit{Transformer-based models}, khả năng tái tạo hình ảnh đã đạt được độ chính xác và tính thẩm mỹ cao hơn so với các phương pháp truyền thống dựa trên nội suy hoặc ghép mẫu.  
 	
-	Các khái niệm liên quan bao gồm:
+	Các khái niệm quan trọng bao gồm:
 	\begin{itemize}
 		\item \textbf{Image Inpainting}: Quá trình lấp đầy hoặc tái tạo các vùng ảnh bị thiếu.
-		\item \textbf{Face Inpainting}: Phiên bản chuyên biệt của Image Inpainting, tập trung vào tái tạo vùng khuôn mặt.
-		\item \textbf{Deep Generative Models}: Các mô hình học sâu có khả năng sinh dữ liệu mới, ví dụ GAN, VAE.
-		\item \textbf{Perceptual Loss}: Hàm mất mát được thiết kế để tối ưu chất lượng hình ảnh ở mức độ cảm nhận thị giác của con người.
+		\item \textbf{Face Inpainting}: Phiên bản chuyên biệt của Image Inpainting, tập trung vào khôi phục vùng khuôn mặt.
+		\item \textbf{Deep Generative Models}: Các mô hình học sâu có khả năng sinh dữ liệu mới, ví dụ GAN, VAE, Diffusion Models.
+		\item \textbf{Perceptual Loss}: Hàm mất mát tối ưu chất lượng hình ảnh ở mức độ cảm nhận thị giác của con người.
 	\end{itemize}
 	
-	Trong bối cảnh bài toán này, các phương pháp học sâu đóng vai trò trung tâm, cho phép mô hình học được các đặc trưng phức tạp của khuôn mặt người và tái tạo các vùng bị thiếu một cách mượt mà, tự nhiên.
-	%===========================================
+	\subsection{Các nghiên cứu liên quan}
 	
-	\subsection{Các phương pháp tiếp cận trong tái tạo khuôn mặt}
-	Các nghiên cứu trong lĩnh vực tái tạo khuôn mặt có thể được phân loại thành ba hướng chính:
+	Các nghiên cứu về tái tạo khuôn mặt từ ảnh bị che khuất có thể được phân loại thành ba nhóm chính:
+	
+	\begin{enumerate}
+		\item \textbf{Phương pháp truyền thống:} 
+		Các kỹ thuật ban đầu thường dựa trên mô hình thống kê, điển hình như \textit{Principal Component Analysis (PCA)} và \textit{3D Morphable Model (3DMM)}. Các phương pháp này khai thác thông tin hình học và các giả định tuyến tính để nội suy vùng bị che khuất. 
+		\textit{Ưu điểm:} Tương đối đơn giản, không yêu cầu khối lượng dữ liệu lớn và chi phí tính toán thấp. 
+		\textit{Hạn chế:} Thiếu tính chân thực trong kết quả, đặc biệt khi xử lý vùng che khuất lớn hoặc có kết cấu phức tạp; khả năng khôi phục chi tiết hạn chế.
+		
+		\item \textbf{Phương pháp học máy cổ điển:} 
+		Các phương pháp này sử dụng thuật toán phân loại như \textit{Support Vector Machines (SVM)} hoặc \textit{Random Forest}, kết hợp với các đặc trưng thủ công (\textit{handcrafted features}) như \textit{Histogram of Oriented Gradients (HOG)} hoặc \textit{Scale-Invariant Feature Transform (SIFT)} để suy luận cấu trúc khuôn mặt bị che khuất. 
+		\textit{Ưu điểm:} Hoạt động tốt trên tập dữ liệu nhỏ, yêu cầu tài nguyên tính toán thấp. 
+		\textit{Hạn chế:} Phụ thuộc mạnh vào chất lượng đặc trưng trích xuất; khó tái tạo chi tiết phức tạp và không thể đạt tính chân thực ở mức thị giác cao.
+		
+		\item \textbf{Phương pháp học sâu:} 
+		Sự phát triển của học sâu mang lại bước tiến vượt bậc trong bài toán này. Các nghiên cứu sử dụng \textit{Convolutional Neural Networks (CNN)} để học đặc trưng không gian và \textit{Generative Adversarial Networks (GAN)} để sinh nội dung ảnh có độ chân thực cao. Một số nghiên cứu tích hợp \textit{Attention Mechanisms} hoặc \textit{Transformer-based architectures} nhằm cải thiện khả năng tái tạo vùng phức tạp và duy trì tính toàn vẹn ngữ nghĩa. Gần đây, các mô hình khuếch tán (\textit{Diffusion Models}) được đề xuất, cho phép sinh ảnh với độ chi tiết và tính chân thực vượt trội.
+		
+		\textit{Ưu điểm:} Khả năng tái tạo hình ảnh tự nhiên, bảo toàn cấu trúc khuôn mặt và cải thiện tính thẩm mỹ. 
+		\textit{Hạn chế:} Yêu cầu khối lượng dữ liệu lớn và tài nguyên tính toán đáng kể; mô hình dễ xuất hiện các lỗi như nhiễu hoặc mất cân bằng màu sắc nếu không được huấn luyện cẩn thận.
+	\end{enumerate}
+	
+	
+	\subsection{Khoảng trống nghiên cứu}
+	Mặc dù các phương pháp học sâu đã đạt nhiều thành tựu, vẫn tồn tại một số hạn chế:
 	\begin{itemize}
-		\item \textbf{Phương pháp truyền thống:} Dựa trên các mô hình thống kê như PCA hoặc 3D Morphable Model (3DMM), tận dụng hình học và các giả định tuyến tính để ước lượng phần bị thiếu.
-		\item \textbf{Phương pháp học máy cổ điển:} Sử dụng các thuật toán như SVM hoặc Random Forest kết hợp đặc trưng thủ công (ví dụ: HOG, SIFT) nhằm dự đoán thông tin vùng bị che khuất.
-		\item \textbf{Phương pháp học sâu:} Ứng dụng các kiến trúc mạng hiện đại như CNN, GAN và gần đây là Diffusion Models để tự động học đặc trưng và sinh ra nội dung ảnh có độ chân thực cao.
+		\item Phần lớn mô hình chỉ tập trung vào tính chân thực thị giác, chưa tối ưu cho các yếu tố cấu trúc hình học khuôn mặt.
+		\item Khả năng tái tạo các vùng che khuất lớn hoặc có nhiều chi tiết phức tạp còn hạn chế.
+		\item Thiếu các phương pháp tích hợp đa dạng cơ chế (ví dụ: kết hợp GAN và Attention) để cân bằng giữa chi tiết cục bộ và tính toàn cục.
 	\end{itemize}
 	
-	%===========================================
-	\subsection{Công nghệ và mô hình học sâu liên quan}
-	Các phương pháp tái tạo khuôn mặt hiện đại dựa trên nhiều kiến trúc và cơ chế học sâu quan trọng:
-	\begin{itemize}
-		\item \textbf{Mạng tích chập (CNN):} Được sử dụng rộng rãi để trích xuất đặc trưng cục bộ và biểu diễn không gian trong ảnh, là nền tảng cho nhiều mô hình inpainting.
-		\item \textbf{Mạng GAN và các biến thể (Pix2Pix, CycleGAN, StyleGAN):} Đóng vai trò sinh ảnh có độ chân thực cao, đặc biệt hữu ích trong việc khôi phục vùng bị che khuất sao cho tự nhiên và nhất quán với khuôn mặt gốc.
-		\item \textbf{Cơ chế Attention và Transformer:} Cho phép mô hình nắm bắt thông tin toàn cục và các quan hệ dài hạn giữa các vùng ảnh, cải thiện chất lượng tái tạo trong trường hợp che khuất diện rộng.
-		\item \textbf{Các phương pháp hiện đại khác:} Bao gồm mô hình khuếch tán (Diffusion Models) và tự mã hóa biến phân (VAE) để sinh ảnh với độ chi tiết và tính đa dạng cao.
-	\end{itemize}
-	%===========================================
-	\subsection{Các công trình nghiên cứu liên quan}
-	Trong lĩnh vực tái tạo gương mặt 2D, đặc biệt đối với các bài toán phục hồi ảnh bị che khuất hoặc sinh ảnh gương mặt mới, có hai hướng nghiên cứu chính: \textit{Face Inpainting} và \textit{Face Generation}. \textit{Face Inpainting} tập trung khôi phục vùng bị thiếu dựa trên phần còn lại của ảnh, trong khi \textit{Face Generation} tạo ra gương mặt hoàn toàn mới hoặc chỉnh sửa đặc trưng theo yêu cầu. Dưới đây là tổng quan các công trình tiêu biểu:
+	Do đó, nghiên cứu này đề xuất một phương pháp kết hợp \textit{Generative Adversarial Networks} với cơ chế \textit{Attention} và sử dụng hàm mất mát đa thành phần (bao gồm \textit{Perceptual Loss}) nhằm cải thiện chất lượng tái tạo cả về mặt hình học và cảm quan.
 	
-	\subsubsection{Face Inpainting (Khôi phục vùng khuyết)}
-	\begin{itemize}
-		\item \textbf{Context Encoders (Pathak et al., CVPR 2016)}: Tiên phong trong việc áp dụng kiến trúc \textit{encoder–decoder} kết hợp \textit{adversarial loss} cho bài toán phục hồi ảnh. Tuy nhiên, kết quả chưa chi tiết khi vùng khuyết lớn.
-		
-		\item \textbf{Generative Image Inpainting with Contextual Attention (Yu et al., CVPR 2018)}: Giới thiệu cơ chế \textit{contextual attention} để khai thác thông tin từ vùng ảnh hiện có, cải thiện độ chân thực.
-		
-		\item \textbf{DeepFill v2 (Yu et al., ICCV 2019)}: Sử dụng \textit{gated convolution} để xử lý mặt nạ tự do hình dạng, trở thành chuẩn trong bài toán \textit{inpainting}.
-		
-		\item \textbf{EdgeConnect (Nazeri et al., ICCV 2019)}: Thêm bước sinh đường biên trước khi khôi phục chi tiết, giúp hình ảnh tự nhiên hơn.
-		
-		\item \textbf{Face Completion with Semantic Guidance (Li et al., CVPR 2017)}: Tận dụng bản đồ ngữ nghĩa để định hướng phục hồi các bộ phận quan trọng như mắt và miệng.
-	\end{itemize}
-	
-	\subsubsection{Face Generation (Sinh gương mặt mới)}
-	\begin{itemize}
-		\item \textbf{PGGAN (Karras et al., ICLR 2018)}: Đề xuất cơ chế tăng trưởng tiến dần trong GAN, tạo ảnh gương mặt chất lượng cao.
-		
-		\item \textbf{StyleGAN series (Karras et al., CVPR 2019–2021)}: Cung cấp khả năng điều khiển thuộc tính khuôn mặt (tuổi, giới tính) thông qua không gian ẩn, thiết lập chuẩn mới trong sinh ảnh.
-		
-		\item \textbf{StyleCLIP (Patashnik et al., ICCV 2021)}: Kết hợp StyleGAN và CLIP để chỉnh sửa ảnh dựa trên mô tả ngôn ngữ tự nhiên.
-		
-		\item \textbf{Diffusion Models (DDPM, Stable Diffusion, Imagen)}: Các mô hình khuếch tán hiện đại cho phép sinh ảnh chất lượng cao và hỗ trợ \textit{inpainting} tốt hơn GAN trong nhiều trường hợp.
-	\end{itemize}
 	
 	%===========================================
 	\section{Phương pháp nghiên cứu}
