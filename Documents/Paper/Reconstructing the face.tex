@@ -12,6 +12,7 @@
 \usepackage{amssymb}
 \usepackage{graphicx}  
 \usepackage{float} 
+\usepackage{indentfirst}
 
 \addto\captionsvietnamese{%
 	\renewcommand{\refname}{Tài liệu tham khảo}
@@ -346,7 +347,11 @@
 	
 	Tổng thể, kết quả thử nghiệm khẳng định pipeline này không chỉ tái tạo cấu trúc bị che khuất mà còn phục hồi chi tiết khuôn mặt với độ trung thực cao. Phương pháp này có tiềm năng áp dụng trong các bài toán phục hồi ảnh chân dung, ảnh lịch sử hoặc ảnh bị hỏng do che khuất.
 	
+	\section{Kết luận \& Hướng phát triển}
 	
+	Nghiên cứu này đã đề xuất một phương pháp kết hợp giữa mạng tự mã hóa biến phân (VAE) và mạng đối sinh (GAN) nhằm tái tạo khuôn mặt từ các hình ảnh bị che khuất. Kết quả thực nghiệm cho thấy mô hình có khả năng phục hồi các chi tiết khuôn mặt với độ chính xác và tính tự nhiên cao, đồng thời khắc phục được một số hạn chế thường gặp ở các phương pháp truyền thống.
+	
+	Trong tương lai, nhóm nghiên cứu dự kiến mở rộng thử nghiệm trên các bộ dữ liệu đa dạng hơn về điều kiện ánh sáng, góc nhìn và chất lượng hình ảnh. Bên cạnh đó, một hướng phát triển quan trọng là tích hợp thêm chức năng \textit{miêu tả và nhận diện khuôn mặt}, qua đó không chỉ tái tạo hình ảnh mà còn cung cấp các thông tin định danh bổ trợ như giới tính, độ tuổi hay trạng thái cảm xúc. Ngoài ra, việc ứng dụng các mô hình sinh ảnh tiên tiến dựa trên \textit{diffusion models} hoặc \textit{transformer-based generative models} cũng được xem là một hướng đi tiềm năng nhằm nâng cao hơn nữa chất lượng và độ chân thực của quá trình tái tạo khuôn mặt.
 	
 	%==============Tài liệu tham khảo======================
 	\begin{thebibliography}{9}
