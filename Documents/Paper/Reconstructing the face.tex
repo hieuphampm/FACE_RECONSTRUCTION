@@ -180,24 +180,30 @@
 	\begin{enumerate}
 		\item \textbf{Phương pháp truyền thống:} 
 		Các kỹ thuật ban đầu thường dựa trên mô hình thống kê, điển hình như \textit{Principal Component Analysis (PCA)} và \textit{3D Morphable Model (3DMM)}. Các phương pháp này khai thác thông tin hình học và các giả định tuyến tính để nội suy vùng bị che khuất. 
-		\textit{Ưu điểm:} Tương đối đơn giản, không yêu cầu khối lượng dữ liệu lớn và chi phí tính toán thấp. 
-		\textit{Hạn chế:} Thiếu tính chân thực trong kết quả, đặc biệt khi xử lý vùng che khuất lớn hoặc có kết cấu phức tạp; khả năng khôi phục chi tiết hạn chế.
-		
+		\begin{itemize}
+			\item \textit{Ưu điểm:} Tương đối đơn giản, không yêu cầu khối lượng dữ liệu lớn và chi phí tính toán thấp. 
+			\item \textit{Hạn chế:} Thiếu tính chân thực trong kết quả, đặc biệt khi xử lý vùng che khuất lớn hoặc có kết cấu phức tạp; khả năng khôi phục chi tiết hạn chế.
+		\end{itemize}
+			
 		\item \textbf{Phương pháp học máy cổ điển:} 
 		Các phương pháp này sử dụng thuật toán phân loại như \textit{Support Vector Machines (SVM)} hoặc \textit{Random Forest}, kết hợp với các đặc trưng thủ công (\textit{handcrafted features}) như \textit{Histogram of Oriented Gradients (HOG)} hoặc \textit{Scale-Invariant Feature Transform (SIFT)} để suy luận cấu trúc khuôn mặt bị che khuất. 
-		\textit{Ưu điểm:} Hoạt động tốt trên tập dữ liệu nhỏ, yêu cầu tài nguyên tính toán thấp. 
-		\textit{Hạn chế:} Phụ thuộc mạnh vào chất lượng đặc trưng trích xuất; khó tái tạo chi tiết phức tạp và không thể đạt tính chân thực ở mức thị giác cao.
+		\begin{itemize}
+			\item \textit{Ưu điểm:} Hoạt động tốt trên tập dữ liệu nhỏ, yêu cầu tài nguyên tính toán thấp.
+			\item \textit{Hạn chế:} Phụ thuộc mạnh vào chất lượng đặc trưng trích xuất; khó tái tạo chi tiết phức tạp và không thể đạt tính chân thực ở mức thị giác cao.
+		\end{itemize}
 		
 		\item \textbf{Phương pháp học sâu:} 
 		Sự phát triển của học sâu mang lại bước tiến vượt bậc trong bài toán này. Các nghiên cứu sử dụng \textit{Convolutional Neural Networks (CNN)} để học đặc trưng không gian và \textit{Generative Adversarial Networks (GAN)} để sinh nội dung ảnh có độ chân thực cao. Một số nghiên cứu tích hợp \textit{Attention Mechanisms} hoặc \textit{Transformer-based architectures} nhằm cải thiện khả năng tái tạo vùng phức tạp và duy trì tính toàn vẹn ngữ nghĩa. Gần đây, các mô hình khuếch tán (\textit{Diffusion Models}) được đề xuất, cho phép sinh ảnh với độ chi tiết và tính chân thực vượt trội.
-		
-		\textit{Ưu điểm:} Khả năng tái tạo hình ảnh tự nhiên, bảo toàn cấu trúc khuôn mặt và cải thiện tính thẩm mỹ. 
-		\textit{Hạn chế:} Yêu cầu khối lượng dữ liệu lớn và tài nguyên tính toán đáng kể; mô hình dễ xuất hiện các lỗi như nhiễu hoặc mất cân bằng màu sắc nếu không được huấn luyện cẩn thận.
+		\begin{itemize}
+			\item \textit{Ưu điểm:} Khả năng tái tạo hình ảnh tự nhiên, bảo toàn cấu trúc khuôn mặt và cải thiện tính thẩm mỹ.
+			\item \textit{Hạn chế:} Yêu cầu khối lượng dữ liệu lớn và tài nguyên tính toán đáng kể; mô hình dễ xuất hiện các lỗi như nhiễu hoặc mất cân bằng màu sắc nếu không được huấn luyện cẩn thận.
+		\end{itemize}
+		 
 	\end{enumerate}
 	
 	
 	\subsection{Khoảng trống nghiên cứu}
-	Mặc dù các phương pháp học sâu đã đạt nhiều thành tựu, vẫn tồn tại một số hạn chế:
+	Mặc dù các phương pháp học sâu đã đạt nhiều thành tựu nhưng vẫn tồn tại một số hạn chế:
 	\begin{itemize}
 		\item Phần lớn mô hình chỉ tập trung vào tính chân thực thị giác, chưa tối ưu cho các yếu tố cấu trúc hình học khuôn mặt.
 		\item Khả năng tái tạo các vùng che khuất lớn hoặc có nhiều chi tiết phức tạp còn hạn chế.
